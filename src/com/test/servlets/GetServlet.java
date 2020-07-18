@@ -20,7 +20,7 @@ public class GetServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		ServletConfig config = getServletConfig();
-		System.out.println(config.getInitParameter("URL"));
+//		System.out.println(config.getInitParameter("URL"));
 		
 		ServletContext context = getServletContext();
 		System.out.println(context.getInitParameter("dbURL"));
