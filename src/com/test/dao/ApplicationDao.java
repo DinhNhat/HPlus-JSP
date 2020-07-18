@@ -73,6 +73,25 @@ public class ApplicationDao {
 		}
 		
 		return rowAffected;
-		
 	}
+	
+	public boolean validateUser(String username, String password) {
+		try {
+			
+			// get the connection for the database
+			Connection connection = DBConnection.getConnectionToDatabase();
+			
+			// write the select query
+			String query = 
+			
+			// set parameters with PreparedStatement
+			
+			// execute the statement and check whether user exists
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
 }

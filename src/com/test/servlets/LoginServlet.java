@@ -29,6 +29,8 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		System.out.println("in Login Post request");
+		
 		// get the username from the login form
 		String username = req.getParameter("username");
 		
