@@ -76,22 +76,33 @@ public class ApplicationDao {
 	}
 	
 	public boolean validateUser(String username, String password) {
+		boolean isValidUser = false;
+		
 		try {
 			
 			// get the connection for the database
 			Connection connection = DBConnection.getConnectionToDatabase();
 			
 			// write the select query
-			String query = 
+			String query = "Select * from users where username=? and password=?";
 			
 			// set parameters with PreparedStatement
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, username);
+			preparedStatement.setString(2, password);
 			
 			// execute the statement and check whether user exists
+			ResultSet set = preparedStatement.executeQuery();
 			
+			while(set.next()) {
+				isValidUser = true;
+			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
+		return isValidUser;
 	}
 	
 }
